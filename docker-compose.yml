@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  ollama:
+    image: ollama/ollama
+    volumes:
+      - ./models:/root/.ollama
+    ports:
+      - "11434:11434"
+
+  llmlingua:
+    build: .
+    environment:
+      - COMPRESSION_RATIO=25
+      - FIDELITY=0.98
